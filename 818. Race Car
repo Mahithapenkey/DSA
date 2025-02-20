@@ -1,0 +1,16 @@
+class Solution:
+    def racecar(self, target: int) -> int:
+        queue = collections.deque([(0,0,1)])
+        visited=set()
+        while queue:
+            m,p,s = queue.popleft()
+            if p == target:
+                return m
+            if (p,s) in visited:
+                continue
+            else:
+                visited.add((p,s))
+                queue.append((m+1,p+s,s*2))
+                if (p+s > target and s>0) or (p+s<target and s<0):
+                    s = -1 if s>0 else 1
+                    queue.append((m+1,p,s))
