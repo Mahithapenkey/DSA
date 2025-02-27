@@ -1,0 +1,11 @@
+class Solution:
+    def maxSum(self, grid: List[List[int]], limits: List[int], k: int) -> int:
+        res=[]
+        for i in range(len(grid)):
+            arr=sorted(grid[i],reverse=True)
+            for j in range((limits[i])):
+                res.append(arr[j])
+
+        res.sort(reverse=True)
+        print(res)
+        return sum(res[:k])
