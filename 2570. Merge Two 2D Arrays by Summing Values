@@ -1,0 +1,15 @@
+class Solution:
+    def mergeArrays(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
+        d=collections.defaultdict()
+        for ele in nums1:
+            d[ele[0]]=ele[1]
+        for ele in nums2:
+            if ele[0] not in d:
+                d[ele[0]]=ele[1]
+            else:
+                d[ele[0]]=d[ele[0]]+ele[1]
+        res=[]
+        for k,v in d.items():
+            res.append([k,v])
+        res.sort()
+        return res
