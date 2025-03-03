@@ -1,0 +1,14 @@
+class Solution:
+    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+        greater=[]
+        equal=[]
+        lesser=[]
+        for ele in nums:
+            if ele>pivot:
+                greater.append(ele)
+            elif ele==pivot:
+                equal.append(ele)
+            else:
+                lesser.append(ele)
+                
+        return lesser+equal+greater
